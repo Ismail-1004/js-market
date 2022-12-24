@@ -2,6 +2,7 @@ class Shopify {
     /* Отрисовка продуктов, смотря от токена */
     productsUi (products, isAuth) {
         const productsContent = document.querySelector('.main__content')
+        const preloaderContent = document.querySelector('.preloader__content')
 
         for (const [i, p] of products.entries()) {
             productsContent.innerHTML += `
@@ -19,6 +20,7 @@ class Shopify {
 
             if (i === products.length - 1) {
                 this.productsClickHandler(products)
+                preloaderContent.style.display="none"
             }
         }
     }
